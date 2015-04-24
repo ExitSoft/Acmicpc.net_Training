@@ -1,0 +1,6 @@
+# text = input().strip(" ")
+# text = text.strip()
+# li = text.split(" ")
+# # print(li)
+# print(len(li) - li.count(""))
+print(len(input().strip().split(" ")))
