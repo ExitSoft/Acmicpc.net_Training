@@ -1,22 +1,27 @@
 count = int(input())
 arr = []
-stack = []
 for i in range(count):
 	arr.append(input())
 
-sw = False
 for i in range(count):
+	stack = []	
 	for j in range(len(arr[i])):
-		if(arr[i][j] == '(' and sw == False):
+		if(arr[i][0] == ")"):
+			stack.append(")")
+			break
+
+		if(arr[i][j] == "("):
 			stack.append(arr[i][j])
-			sw = True
-		if(arr[i][j] == ')' and sw == True):
-			stack.append(arr[i][j])
-			sw = False
-
-print(stack)
-print(arr)
-
-
+		else:
+			# stack.remove(")")
+			if(stack != []):
+				stack.pop()
+			else:
+				stack.append(")")
+				break
 
 
+	if(stack == []):
+		print("Yes")
+	else:
+		print("No")
