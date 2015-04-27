@@ -16,6 +16,7 @@ int fibo(int n, int i) {
 		return fibo(n-1, i) + fibo(n-2, i);
 	}
 }
+
 int main(void){
 
 	int n;
