@@ -6,6 +6,4 @@ text = text.split(" ")
 
 a = int(text[0])
 b = int(text[1])
-
-
 print(a/b)
