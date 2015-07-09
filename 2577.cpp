@@ -2,10 +2,17 @@
 #include <stdlib.h>
 
 int main (){
-	int arr[3];
+	int input;
+	int num = 1;
 	for(int i = 0; i < 3; i++){
-		scanf("%d", arr[i]);
+		scanf("%d", &input);
+		num *= input;
 	}
+
+	while()
+
+
+
 
 	return 0;
 }
