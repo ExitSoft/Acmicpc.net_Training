@@ -1,24 +1,33 @@
 #include <stdio.h>
-#include <math.h>
-// int hanoi(){
 
-// }
+int count = 0;
 
-
-
-int main (void){
-	int num = 0;
-	scanf("%d", &num);
-	int *block = new int[num];
-	for (int i = 0; i < num; ++i)
-	{
-		block[i] = i + 1;
+void hanoi(int n, int a, int b){
+	if(n == 1){
+		printf("%d %d\n", a, b);
 	}
-
-	printf("%ld\n", int(pow(2.0,num)));
-
-
-
-
+	else{
+		int c = 6 - a - b;
+		hanoi(n-1,a,c);
+		printf("%d %d\n", a, b);
+		hanoi(n-1, c, b);
+	}
+}
+int pow(int n){
+	if(n == count){
+		return 1;
+	}
+	else{
+		return 2 * pow(n-1);
+	}
+}
+int main(){
+	int num;
+	scanf("%d",&num);
+	count = pow(num)-1;
+	printf("%d\n", count);
+	if(count <= 20){
+		hanoi(num,1,3);
+	}
 	return 0;
 }

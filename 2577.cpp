@@ -8,11 +8,16 @@ int main (){
 		scanf("%d", &input);
 		num *= input;
 	}
+	int arr[10] = {0};
+	while(num != 0){
+		int temp = num % 10;
+		num /= 10;
+		arr[temp]++;
+	}
 
-	while()
-
-
-
+	for(int i = 0; i < 10; i++){
+		printf("%d\n", arr[i]);
+	}
 
 	return 0;
 }
