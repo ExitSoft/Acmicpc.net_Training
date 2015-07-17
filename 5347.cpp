@@ -1,28 +1,26 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "stdio.h"
+long a,b;
+
+long gcd(long x, long y){
+	long t = x;
+	x = y;
+	y = t % y;
+
+	if(y == 0){
+		return x;
+	}
+	return gcd(x,y);
+}
 
 int main(){
-	int size;
-	scanf("%d", &size);
-	int **arr;
-	arr = (int**)malloc(sizeof(int*)*size);
-	for(int i = 0; i < size; i++){
-		arr[i] = (int*)malloc(sizeof(int)*2);
-	}
+	int num;
+	scanf("%d",&num);
 
-	for(int i = 0; i < size; i++){
-		for(int j = 0; j < 2; j++){
-			arr[i][j] = 1;
-		}
-	}
+	for(int i = 0; i < num; i++){
+		scanf("%ld %ld", &a, &b);
+		printf("%ld\n", (a*b) /gcd(a,b));
 
-	for(int i = 0; i < size; i++){
-		for(int j = 0; j < 2; j++){
-			printf("%d", arr[i][j]);
-		}
-		printf("\n");
 	}
-
 
 	return 0;
-`
+}
