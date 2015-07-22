@@ -1,13 +1,16 @@
 #include "stdio.h"
-// #include "math.h"
+#include "math.h"
+int a,b;
+int count = 0;
 
-int func(int a, int b){
-	if(b == 1){
-		return a;
+void func(int n){
+	count++;
+
+	if(a == n){
+		return;
 	}
-	else{
-		return a * func(a,b-1);
-	}
+
+	return func((n*a)%10);
 
 }
 
@@ -15,10 +18,29 @@ int main(){
 	int num;
 	scanf("%d",&num);
 	while(num--){
-		int a,b;
+		count = 0;
 		scanf("%d %d", &a, &b);
-		// printf("%d\n", func(a,b)%10);
-		printf("%d\n", func(a,b));
+
+
+		a %= 10;
+		if(a == 0){
+			printf("10\n");
+			continue;
+		}
+		if(a == 1){
+			printf("%d\n",a);
+			continue;
+		}
+
+		func(a*a);
+		b %= count;
+		if(b == 0){
+			b = count;
+		}
+		
+		int tmp = pow(a,b);
+		printf("%d\n", tmp%10);
+
 	}
 	return 0;
 }
