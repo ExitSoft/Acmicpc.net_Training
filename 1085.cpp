@@ -1,39 +1,37 @@
 #include "stdio.h"
+#define min(a,b) a>b?b:a
 
 int x,y;
 int box_x, box_y;
+
+int min_x, min_y;
+
+
+int cal(int x, int box){
+	return (x > box/2)? x : box-x;
+}
 
 int main(){
 
 	scanf("%d %d %d %d", &x, &y, &box_x, &box_y);
 
-	int min = 9999;
 
-	if(x < box_x/2){
-		// printf("%d ", x);
-		if(min > x){
-			min = x;
-		}
+	if(x <= box_x/2){
+		min_x = x;
 	}
 	else{
-		// printf("%d ", box_x - x);
-		if(min > box_x - x){
-			min = box_x - x;
-		}
+		min_x = box_x - x;
 	}
 
-	if(y < box_y/2){
-		// printf("%d\n", y);
-		if(min > y){
-			min = y;
-		}
+	if(y <= box_y/2){
+		min_y = y;
 	}
 	else{
-		// printf("%d\n", box_y - y);
-		if(min > box_y - y){
-			min = box_y - y;
-		}
+		min_y = box_y - y;
 	}
-	printf("%d\n", min);
+
+	printf("%d\n", (min_x < min_y)? min_x : min_y);
+	// printf("%d\n", min(cal(x,box_x), cal(y,box_y)));
+
 	return 0;
 }
