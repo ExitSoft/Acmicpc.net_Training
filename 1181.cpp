@@ -20,7 +20,7 @@ void print(){
 
 void sort(int start, int end){
 	for(int i = start; i < end; i++){
-		for(int j = start; j < end - i - 1; j++){
+		for(int j = start; j < end - i -1; j++){
 			if(strcmp(str[j], str[j+1]) > 0){
 				char temp[100];
 				strcpy(temp, str[j]);
