@@ -1,18 +1,20 @@
 #include <stdio.h>
 
 int main(){
-	int n, money;
-	int coin[101];
-	int d[10001];
-	d[0] = 1;
-	scanf("%d %d", &n, &money);
+	int n, k;
+	int coin[101], cache[10001] = {0};
+	cache[0] = 1;
+
 	for(int i = 0; i < n; i++) scanf("%d", &coin[i]);
+
 	for(int i = 0; i < n; i++){
-		for(int j = coin[i]; j <= money; j++){
-			d[j] += d[j-coin[i]];
+		for(int j = 0; j <= k; j++){
+			if(j >= coin[i]) cache[j] += cache[j - coin[i]];
 		}
 	}
-	printf("%d\n", d[money]);
 
+	printf("%d\n", cache[k]);
+
+	
 	return 0;
 }
