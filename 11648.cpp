@@ -1,51 +1,18 @@
 #include <stdio.h>
 
-int stack[1001];
-int top = 0;
-
-void push(int n){
-	stack[top++] = n;
-}
-
-bool isEmpty(){
-	return top == 0;
-}
-
-int pop(){
-	return stack[--top];
-}
-
-int strlen(char *str){
-	int len = 0;
-	while(str[len] != '\0') len++;
-	return len;
-
-}
-
 int main(){
-	char input[10];
-	scanf("%s", input);
+	int n, result;
 	int count = 0;
-	int result = 1;
-	while(1){
-		int len = strlen(input);
-		if(len <= 1) break;
-
-		result = 1;
-		for(int i = 0; i < len; i++){
-			result *= (input[i] - '0');
-		}
-		int tmp = result;
-		while(tmp != 0){
-			push(tmp%10);
-			tmp = tmp/10;
-		}
-		int i = 0;
-		while(!isEmpty()){
-			input[i++] = (pop() + '0');
-		}
-		input[i] = '\0';
+	scanf("%d", &n);
+	result = n;
+	while(result >= 10){
 		count++;
+		result = 1;
+		while(n != 0){
+			result *= n%10;
+			n /= 10;
+		}
+		n = result;
 	}
 	printf("%d\n", count);
 
