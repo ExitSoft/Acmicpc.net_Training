@@ -17,6 +17,7 @@ int main(){
 			divide += degree;
 			sum += (degree * score);
 		}
+
 		
 		printf("%d %.1f\n", divide, sum/divide);
 	}
