@@ -5,23 +5,23 @@
 using namespace std;
 
 int main(){
-	stack<int> st;
+	stack<int> s;
 	queue<char> q;
 
 	int n;
 	scanf("%d", &n);
-	int index = 1;
+	int i = 1;
 	while(n--){
-		int input;
-		scanf("%d", &input);
+		int x;
+		scanf("%d", &x);
 		
-		while(st.empty() || st.top() < input){
-			st.push(index++);	
+		while(s.empty() || s.top() < x){
+			s.push(i++);	
 			q.push('+');
 		}
 
-		if(st.top() == input){
-			st.pop();
+		if(s.top() == x){
+			s.pop();
 			q.push('-');
 		}
 		else {
