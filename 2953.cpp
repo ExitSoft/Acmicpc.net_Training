@@ -1,21 +1,19 @@
-#include "stdio.h"
+#include <stdio.h>
 
 int main(){
-	int arr[5] = {0};
-	int max_index = 0;
-	int max = 0;
+	int max = 0, max_index = 0;
 	for(int i = 0; i < 5; i++){
+		int sum = 0;
 		for(int j = 0; j < 4; j++){
-			int temp;
-			scanf("%d", &temp);
-			arr[i] += temp;
+			int n;
+			scanf("%d", &n);
+			sum += n;
 		}
-		if(max < arr[i]){
+		if(sum > max){
+			max = sum;
 			max_index = i+1;
-			max = arr[i];
 		}
 	}
 	printf("%d %d\n", max_index, max);
-
 	return 0;
-}
+}	
