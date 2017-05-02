@@ -1,24 +1,22 @@
 #include <stdio.h>
 
-int cache[10001] = {0};
+int cache[10001];
 
-int func(int n){
+void d(int n){
 	int result = n;
-	while(n != 0){
-		result += (n % 10);
+	while(n > 0){
+		result += n % 10;
 		n /= 10;
 	}
-	return result;
+	if(result > 10000) return;
+	cache[result] = 1;
+	return d(result);
 }
 
 int main(){
-	for(int i = 0; i < 10000; i++){
-		int tmp = func(i);
-		if(tmp <= 10000) cache[tmp] = 1;
+	for(int i = 1; i <= 10000; i++) d(i);
+	for(int i = 1; i <= 10000; i++){
+		if(!cache[i]) printf("%d\n", i);
 	}
-	for(int i = 0; i < 10000; i++){
-		if(cache[i] == 0) printf("%d\n", i);
-	}
-	
 	return 0;
 }
