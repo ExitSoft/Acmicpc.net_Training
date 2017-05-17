@@ -15,6 +15,6 @@ int main(){
 			str[i] += 'a';
 		}
 	}
-	printf("%s\n", str);
+	printf("%s\n", str);stack<int> s;
 	return 0;
 }
