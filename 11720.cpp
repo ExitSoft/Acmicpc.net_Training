@@ -1,15 +1,14 @@
 #include <stdio.h>
 
-
-int main(){
+int main() {
 	int result = 0;
-	int cnt;
-	scanf("%d", &cnt);
-	char str[200];
-	scanf("%s", str);
-	for(int i = 0; i < cnt; i++){
-		result += str[i] - '0';
+	int n;
+	scanf("%d", &n);
+	while(n--) {
+		int x;
+		scanf("%1d", &x);
+		result += x;
 	}
+
 	printf("%d\n", result);
-	return 0;
 }
